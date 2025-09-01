@@ -102,21 +102,14 @@ if lfs then
 	env.info('Foothold - Save file path: '..filepath)
 end
 bc = BattleCommander:new(filepath, 10, 60)
-anapa = ZoneCommander:new({zone='Anapa', side=2, level=5, upgrades=airfield, crates=cargoAccepts.anapa, flavorText=flavor.anapa})
+bodo = ZoneCommander:new({zone='Bodo', side=2, level=5, upgrades=airfield, crates=cargoAccepts.anapa, flavorText=flavor.anapa})
+andoya = ZoneCommander:new({zone='Andoya', side=2, level=3, upgrades=airfield, crates=cargoAccepts.anapa, flavorText=flavor.anapa})
+banak = ZoneCommander:new({zone='Banak', side=2, level=2, upgrades=airfield, crates=cargoAccepts.anapa, flavorText=flavor.anapa})
 carrier = ZoneCommander:new({zone='Carrier Group', side=2, level=2, upgrades=carrier, crates={}, flavorText=flavor.carrier})
-alpha = ZoneCommander:new({zone='Alpha', side=0, level=0, upgrades=regularzone, crates=cargoAccepts.general, flavorText=flavor.alpha})
-bravo = ZoneCommander:new({zone='Bravo', side=1, level=3, upgrades=farp, crates=cargoAccepts.bravo, flavorText=flavor.bravo})
-charlie = ZoneCommander:new({zone='Charlie', side=0, level=0, upgrades=regularzone, crates=cargoAccepts.general, flavorText=flavor.charlie})
-convoy = ZoneCommander:new({zone='Convoy', side=1, level=3, upgrades=convoy, crates=cargoAccepts.general, flavorText=flavor.convoy})
-krymsk = ZoneCommander:new({zone='Krymsk', side=1, level=5, upgrades=airfield, crates=cargoAccepts.krymsk, flavorText=flavor.krymsk})
-oilfields = ZoneCommander:new({zone='Oil Fields', side=1, level=3, upgrades=farp, crates=cargoAccepts.general, flavorText=flavor.oilfields, income=2})
-radio = ZoneCommander:new({zone='Radio Tower', side=1, level=1, upgrades=regularzone, crates=cargoAccepts.general, flavorText=flavor.radio})
-delta = ZoneCommander:new({zone='Delta', side=1, level=1, upgrades=regularzone, crates=cargoAccepts.general, flavorText=flavor.delta})
-factory = ZoneCommander:new({zone='Factory', side=1, level=1, upgrades=regularzone, crates=cargoAccepts.factory, flavorText=flavor.factory, income=2})
-samsite = ZoneCommander:new({zone='SAM Site', side=0, level=0, upgrades=specialSAM, crates=cargoAccepts.general, flavorText=flavor.samsite})
-foxtrot = ZoneCommander:new({zone='Foxtrot', side=1, level=3, upgrades=regularzone, crates=cargoAccepts.general, flavorText=flavor.foxtrot})
-echo = ZoneCommander:new({zone='Echo', side=1, level=3, upgrades=farp, crates=cargoAccepts.echo, flavorText=flavor.echo})
-krasnodar = ZoneCommander:new({zone='Krasnodar', side=1, level=6, upgrades=specialKrasnodar, crates=cargoAccepts.general, flavorText=flavor.krasnodar, income=2})
+murmansk = ZoneCommander:new({zone='Murmansk', side=1, level=6, upgrades=airfield, crates=cargoAccepts.krymsk, flavorText=flavor.krymsk})
+monchegorsk = ZoneCommander:new({zone='Monchegorsk', side=1, level=4, upgrades=airfield, crates=cargoAccepts.krymsk, flavorText=flavor.krymsk})
+kirkenes = ZoneCommander:new({zone='Kirkenes', side=0, level=2, upgrades=airfield, crates=cargoAccepts.factory, flavorText=flavor.factory})
+hammerfest = ZoneCommander:new({zone='Hammerfest', side=0, level=1, upgrades=farp, crates=cargoAccepts.general, flavorText=flavor.factory})
 
 radio:addCriticalObject('RadioTower')
 samsite:addCriticalObject('CommandCenter')
@@ -124,8 +117,7 @@ factory:addCriticalObject('FactoryBuilding1')
 factory:addCriticalObject('FactoryBuilding2')
 convoy:addCriticalObject('convoy1')
 convoy:addCriticalObject('convoy2')
-convoy:addCriticalObject('convoy3')
-convoy:addCriticalObject('convoy4')
+
 
 local oilbuildings = {'oilref1','oilref2'}
 for i,v in ipairs(oilbuildings) do
@@ -133,53 +125,53 @@ for i,v in ipairs(oilbuildings) do
 end
 
 dispatch = {
-	krymsk = {
-		GroupCommander:new({name='krym1', mission='supply', targetzone='Bravo'}),
-		GroupCommander:new({name='krym2', mission='attack', targetzone='Bravo'}),
-		GroupCommander:new({name='krym3', mission='patrol', targetzone='Bravo'}),
-		GroupCommander:new({name='krym4', mission='patrol', targetzone='Krymsk'}),
-		GroupCommander:new({name='krym5', mission='supply', targetzone='Radio Tower'}),
-		GroupCommander:new({name='krym6', mission='attack', targetzone='Radio Tower'}),
-		GroupCommander:new({name='krym7', mission='patrol', targetzone='Radio Tower'}),
-		GroupCommander:new({name='krym8', mission='patrol', targetzone='Bravo'}),
-		GroupCommander:new({name='krym9', mission='patrol', targetzone='Krymsk'}),
-		GroupCommander:new({name='krym10', mission='supply', targetzone='Bravo'}),
-		GroupCommander:new({name='krym11', mission='supply', targetzone='Radio Tower'}),
-		GroupCommander:new({name='krym12', mission='supply', targetzone='Delta'}),
-		GroupCommander:new({name='krym13', mission='attack', targetzone='Delta'}),
-		GroupCommander:new({name='krym14', mission='supply', targetzone='Factory'}),
-		GroupCommander:new({name='krym15', mission='attack', targetzone='Factory'}),
-		GroupCommander:new({name='krym16', mission='supply', targetzone='Delta'}),
-		GroupCommander:new({name='krym17', mission='supply', targetzone='Factory'}),
-		GroupCommander:new({name='krym18', mission='supply', targetzone='SAM Site'}),
-		GroupCommander:new({name='krym19', mission='supply', targetzone='SAM Site'}),
-		GroupCommander:new({name='krym20', mission='attack', targetzone='SAM Site'}),
-		GroupCommander:new({name='krym21', mission='patrol', targetzone='Delta'}),
-		GroupCommander:new({name='krym22', mission='supply', targetzone='Oil Fields'}),
-		GroupCommander:new({name='krym23', mission='supply', targetzone='Oil Fields'}),
-		GroupCommander:new({name='krym24', mission='attack', targetzone='Oil Fields'}),
-		GroupCommander:new({name='krym25', mission='attack', targetzone='Bravo', type='surface'})
+	murmansk1 = {
+		GroupCommander:new({name='murmansk1', mission='supply', targetzone='Kirkenes'}),
+		GroupCommander:new({name='murmansk2', mission='attack', targetzone='Kirkenes'}),
+		GroupCommander:new({name='murmansk3', mission='patrol', targetzone='Kirkenes'}),
+		GroupCommander:new({name='murmansk4', mission='patrol', targetzone='Murmansk'}),
+		GroupCommander:new({name='murmansk5', mission='supply', targetzone='Radio Tower'}),
+		GroupCommander:new({name='murmansk6', mission='attack', targetzone='Radio Tower'}),
+		GroupCommander:new({name='murmansk7', mission='patrol', targetzone='Radio Tower'}),
+		GroupCommander:new({name='murmansk8', mission='patrol', targetzone='Kirkenes'}),
+		GroupCommander:new({name='murmansk9', mission='patrol', targetzone='Murmansk'}),
+		GroupCommander:new({name='murmansk10', mission='supply', targetzone='Kirkenes'}),
+		GroupCommander:new({name='murmansk11', mission='supply', targetzone='Radio Tower'}),
+		GroupCommander:new({name='murmansk12', mission='supply', targetzone='Hammerfest'}),
+		GroupCommander:new({name='murmansk13', mission='attack', targetzone='Hammerfest'}),
+		GroupCommander:new({name='murmansk14', mission='supply', targetzone='Factory'}),
+		GroupCommander:new({name='murmansk15', mission='attack', targetzone='Factory'}),
+		GroupCommander:new({name='murmansk16', mission='supply', targetzone='Hammerfest'}),
+		GroupCommander:new({name='murmansk17', mission='supply', targetzone='Factory'}),
+		GroupCommander:new({name='murmansk18', mission='supply', targetzone='SAM Site'}),
+		GroupCommander:new({name='murmansk19', mission='supply', targetzone='SAM Site'}),
+		GroupCommander:new({name='murmansk20', mission='attack', targetzone='SAM Site'}),
+		GroupCommander:new({name='murmansk21', mission='patrol', targetzone='Hammerfest'}),
+		GroupCommander:new({name='murmansk22', mission='supply', targetzone='Oil Fields'}),
+		GroupCommander:new({name='murmansk23', mission='supply', targetzone='Oil Fields'}),
+		GroupCommander:new({name='murmansk24', mission='attack', targetzone='Oil Fields'}),
+		GroupCommander:new({name='murmansk25', mission='attack', targetzone='Kirkenes', type='surface'}),
 	},
-	bravo = {
-		GroupCommander:new({name='bravo1', mission='supply', targetzone='Alpha'}),
-		GroupCommander:new({name='bravo2', mission='attack', targetzone='Alpha'}),
-		GroupCommander:new({name='bravo6', mission='supply', targetzone='Charlie'}),
-		GroupCommander:new({name='bravo7', mission='attack', targetzone='Charlie'}),
-		GroupCommander:new({name='bravo4', mission='supply', targetzone='Krymsk'}),
-		GroupCommander:new({name='bravo5', mission='attack', targetzone='Krymsk'}),
-		GroupCommander:new({name='bravo8', mission='supply', targetzone='Krymsk'}),
-		GroupCommander:new({name='bravo10', mission='supply', targetzone='Charlie'}),
-		GroupCommander:new({name='bravo9', mission='supply', targetzone='Alpha'}),
-		GroupCommander:new({name='bravo11', mission='supply', targetzone='Oil Fields'}),
-		GroupCommander:new({name='bravo12', mission='supply', targetzone='Oil Fields'}),
-		GroupCommander:new({name='bravo13', mission='attack', targetzone='Oil Fields'}),
-		GroupCommander:new({name='bravo14', mission='supply', targetzone='Convoy', type='surface'})
+	banak = {
+   		GroupCommander:new({name='banak1', mission='supply', targetzone='Hammerfest'}),
+   		GroupCommander:new({name='banak2', mission='attack', targetzone='Hammerfest'}),
+   		GroupCommander:new({name='banak3', mission='supply', targetzone='Kirkenes'}),
+   		GroupCommander:new({name='banak4', mission='attack', targetzone='Kirkenes'}),
+   		GroupCommander:new({name='banak5', mission='supply', targetzone='Murmansk'}),
+   		GroupCommander:new({name='banak6', mission='attack', targetzone='Murmansk'}),
+		GroupCommander:new({name='banak7', mission='patrol', targetzone='Banak'}),
+ 		GroupCommander:new({name='banak8', mission='supply', targetzone='Kirkenes'}),
+    	GroupCommander:new({name='banak9', mission='supply', targetzone='Hammerfest'}),
+    	GroupCommander:new({name='banak10', mission='supply', targetzone='Oil Fields'}),
+    	GroupCommander:new({name='banak11', mission='supply', targetzone='Oil Fields'}),
+    	GroupCommander:new({name='banak12', mission='attack', targetzone='Oil Fields'}),
+    	GroupCommander:new({name='banak13', mission='supply', targetzone='Convoy', type='surface'})
 	},
-	anapa = {
-		GroupCommander:new({name='anapa1', mission='supply', targetzone='Alpha'}),
-		GroupCommander:new({name='anapa3', mission='supply', targetzone='Bravo'}),
-		GroupCommander:new({name='anapa2', mission='supply', targetzone='Charlie'}),
-		GroupCommander:new({name='anapa5', mission='patrol', targetzone='Bravo'})
+	bodo = {
+		GroupCommander:new({name='bodo1', mission='supply', targetzone='Hammerfest'}),
+    	GroupCommander:new({name='bodo2', mission='supply', targetzone='Kirkenes'}),
+    	GroupCommander:new({name='bodo3', mission='supply', targetzone='Hammerfest'}),
+    	GroupCommander:new({name='bodo4', mission='patrol', targetzone='Kirkenes'})
 	},
 	charlie={
 		GroupCommander:new({name='anapa6', mission='attack', targetzone='Bravo'})
@@ -265,26 +257,11 @@ bc:addZone(foxtrot)
 bc:addZone(echo)
 bc:addZone(krasnodar)
 
-bc:addConnection("Anapa","Alpha")
-bc:addConnection("Alpha","Bravo")
-bc:addConnection("Bravo","Krymsk")
-bc:addConnection("Bravo","Charlie")
-bc:addConnection("Bravo","Convoy")
-bc:addConnection("Anapa","Charlie")
-bc:addConnection("Bravo","Oil Fields")
-bc:addConnection("Krymsk","Oil Fields")
-bc:addConnection("Krymsk","Radio Tower")
-bc:addConnection("Krymsk","Factory")
-bc:addConnection("Krymsk","Delta")
-bc:addConnection("Factory","Delta")
-bc:addConnection("Factory","Foxtrot")
-bc:addConnection("Factory","Echo")
-bc:addConnection("Delta","Echo")
-bc:addConnection("Foxtrot","Krasnodar")
-bc:addConnection("Echo","Krasnodar")
-bc:addConnection("Echo","SAM Site")
-bc:addConnection("Krymsk","SAM Site")
-
+bc:addConnection("Bodo","Kirkenes")
+bc:addConnection("Bodo","Hammerfest")
+bc:addConnection("Kirkenes","Murmansk")
+bc:addConnection("Murmansk","Monchegorsk")
+bc:addConnection("Kirkenes","Banak")
 
 convoy:registerTrigger('lost', function (event, sender)
 	local convoyItems = {'convoy1','convoy2','convoy3', 'convoy4'}
@@ -1338,5 +1315,6 @@ function respawnStatics()
 		end
 	end
 end
+
 
 mist.scheduleFunction(respawnStatics, {}, timer.getTime() + 1, 30)
