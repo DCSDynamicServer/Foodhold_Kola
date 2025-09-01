@@ -77,21 +77,18 @@ cargoAccepts = {
 }
 
 flavor = {
-	anapa = 'WPT 1\nHome base',
-	carrier = 'Carrier group',
-	alpha='WPT 2\nDefensive position next to the town of Natuhaevskaya',
-	bravo='WPT 3\nFARP next to the town of Damanka.\nWill let us launch helicopter attacks from a bit closer to the action.',
-	charlie='WPT 4\nDefensive position next to an old TV tower.\nWill provide allied air patrol to help capture Bravo',
-	convoy='WPT 5\nSupply convoy detained north of Bravo.\nKeep damage to the trucks to a minimum while liberating this area.\nWe could really use the supplies.',
-	krymsk='WPT 7\nAirbase next to the city of Krymsk.\nCapturing it will provide us with valuable aircraft to use for our cause.',
-	radio='WPT 8\nRadio atenna on the outskirts of Krymsk.\nIf we capture it, we can launch AWACS from the nearby airport\nto get some much needed intel on the enemy.',
-	oilfields='WPT 6\nOil extraction and Refinery north of Krymsk.\nCapture it to get a steady stream of income, or just destroy it to put a hole in the enemy wallet.',
-	delta='WPT 10\nDefensive position out in the middle of nowhere',
-	factory='WPT 9\nWeapon factory next to the town of Homskiy.\nWe can use it to resupply nearby bases.\nIt will also provide a steady stream of income.',
-	samsite='WPT 11\nHome to an old SA-2 site.\nIf we capture it, we might be able to get some use out of it.',
-	foxtrot='WPT 13\nDefensive position with a nice view of a lake',
-	echo='WPT 12\nFARP next to the city of Krasnodar.\nCapturing it will let us operate our helicopters in the area.',
-	krasnodar='WPT 14\nAirbase next to the city of Krasnodar.\nThe home base of our enemy. Capture it to deprive them of their most valuable asset.'
+	bodo = "WPT 1\nHome base in northern Norway.\nMain NATO hub for operations.",
+    andoya = "WPT 2\nAirbase for long-range patrols and bomber support.",
+    banak = "WPT 3\nForward operating base close to the Russian border.",
+    murmansk = "WPT 4\nLarge Russian military hub.\nCapturing it will cripple enemy air power.",
+    monchegorsk = "WPT 5\nRussian airbase with strong SAM defenses.",
+    kirkenes = "WPT 6\nStrategic Norwegian airfield near the border.\nControl gives access to the frontline.",
+    hammerfest = "WPT 7\nSmall airport and harbor.\nNeutral at start, but valuable for logistics.",
+    factory = "WPT 8\nWeapon factory in Murmansk harbor.\nProvides steady stream of supplies.",
+    oilfields = "WPT 9\nFuel depot and oil storage near Kirkenes.\nCapture or destroy to cut enemy income.",
+    radio = "WPT 10\nRadio tower near Bodo.\nEnables AWACS support if captured.",
+    samsite = "WPT 11\nSAM site near Monchegorsk.\nKey to regional air defense.",
+    convoy = "WPT 12\nSupply convoy moving between Murmansk and Kirkenes.\nProtect or intercept to influence the war."
 }
 
 local filepath = 'foothold_1.4.lua'
@@ -1318,3 +1315,4 @@ end
 
 
 mist.scheduleFunction(respawnStatics, {}, timer.getTime() + 1, 30)
+
